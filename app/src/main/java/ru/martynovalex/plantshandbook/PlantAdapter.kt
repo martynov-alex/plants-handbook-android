@@ -24,13 +24,13 @@ class PlantAdapter: RecyclerView.Adapter<PlantAdapter.PlantHolder>() {
         private val binding = PlantItemBinding.bind(card)
 
         fun bindOption(plant: Plant) {
-            binding.cardImage.setImageResource(plant.imageId);
+            binding.cardImage.setImageResource(plant.imageId)
             binding.cardTitle.text = plant.title
         }
 
         // или
         fun bind(plant: Plant) = with (binding){
-            cardImage.setImageResource(plant.imageId);
+            cardImage.setImageResource(plant.imageId)
             cardTitle.text = plant.title
         }
 
@@ -54,6 +54,7 @@ class PlantAdapter: RecyclerView.Adapter<PlantAdapter.PlantHolder>() {
 
     fun addPlant(plant: Plant) {
         plantList.add(plant)
-        notifyDataSetChanged()
+        // notifyDataSetChanged()
+        notifyItemInserted(plantList.size - 1)
     }
 }
